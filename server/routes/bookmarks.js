@@ -15,11 +15,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // const bookmark = new Bookmark({ title: req.body.title, url: req.body.url })
   // bookmark.save()
-  Bookmark.create(req.body).then(
-    bookmark => res.send(bookmark)
-  ).catch(
-    error => res.status(500).json({ error: error.message })
-  )
+  Bookmark.create(req.body)
+  .then(bookmark => res.send(bookmark))
+  .catch(error => res.status(500).json({ error: error.message }))
 })
 
 // DELETE /bookmarks/:id
